@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TransService } from './services/trans.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'POC NG Translate';
 
-  constructor(translate: TranslateService) {
-    // this language will be used as a fallback when a translation isn't found in the current language
-    translate.setDefaultLang('en');
-
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('fr'); // If removed, the default language will apply
+  constructor(trans: TransService) {
+    trans.use('fr'); // If removed, the default language will apply
   }
 }
