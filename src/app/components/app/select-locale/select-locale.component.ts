@@ -8,7 +8,6 @@ import { TransService } from 'src/app/services/trans.service';
 })
 export class SelectLocaleComponent implements OnInit {
   locale: string;
-  @Output() onLocaleChange: EventEmitter<string> = new EventEmitter();
 
   constructor(private trans: TransService) { }
 
@@ -17,7 +16,7 @@ export class SelectLocaleComponent implements OnInit {
   }
 
   changeLocale(locale: string) {
-    this.onLocaleChange.emit(locale);
+    this.trans.setLocale(locale);
   }
 
 }
